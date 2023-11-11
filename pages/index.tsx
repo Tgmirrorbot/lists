@@ -1,13 +1,16 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Header from '../components/Header';
+import Card from '../components/Card';
+import sites from '../data/sites.json';
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-    </main>
-  )
+    <div className="dark:bg-gray-900">
+      <Header />
+      <main className="flex flex-wrap justify-center p-10">
+        {sites.map((site, index) => (
+          <Card key={index} {...site} />
+        ))}
+      </main>
+    </div>
+  );
 }
